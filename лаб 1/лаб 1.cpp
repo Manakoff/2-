@@ -1,16 +1,19 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 using namespace std;
 
 class Student
 {
+protected:
+    //для дочерних классов
+
 private:
-    int kyrs;
+    short kyrs;
     int variant;
     int gruppa;
     string first_name;
     string last_name;
-    string napravlenie;
+    int napravlenie;
 
 public:
 
@@ -18,14 +21,14 @@ public:
     {
         first_name = "";
         last_name = "";
-        napravlenie = "";
+        napravlenie = 0;
         kyrs = 1;
         variant = 1;
         gruppa = 1;
     }
 
 
-    Student(const string& first, const string& last, const string& naprav, int kyr, int grup, int vari)
+    Student(const string& first, const string& last, int naprav, short kyr, int grup, int vari)
     {
         first_name = first;
         last_name = last;
@@ -45,14 +48,25 @@ public:
         gruppa = copy.gruppa;
     }
 
+    ~Student()
+    {
+        cout << "Class_Student_Destr.";
+    }
+
     string getFirstName() { return first_name; }
     string getLastName() { return last_name; }
-    string getNapravlenie() { return napravlenie; }
+    int getNapravlenie() { return napravlenie; }
     int getGruppa() { return gruppa; }
-    int getKyrs() { return kyrs; }
+    short getKyrs() { return kyrs; }
     int getVariant() { return variant; }
 
-    void setKyrs(int ky) { kyrs = ky; }
+    void setKyrs(int ky) 
+    { 
+        if (ky < 1 or ky > 6)
+            cout << "Попробуйте ещё раз";
+        else
+            kyrs = ky; 
+    }
     void setVariant(int var) { variant = var; }
 
     void printInfo()
@@ -67,7 +81,13 @@ public:
 
     void nextKyrs()
     {
-        kyrs++;
+        int k = kyrs + 1;
+        if (k > 6)
+            cout << "Превышен лимит курсов" << endl;
+
+        else
+            kyrs++;
+        
     }
 };
 
@@ -75,14 +95,21 @@ int main()
 {
     setlocale(LC_ALL, "RU");
 
-    Student student_1("Андрей", "Манаков", "ИИАД-2", 1, 2, 1);
-    student_1.printInfo();
+    Student s_1("Андрей", "Манаков", 1122, 6, 2, 1);
+    s_1.printInfo();
 
-    student_1.nextKyrs();
-    student_1.printInfo();
+    Student s2 = s_1;
+    s2.printInfo();
 
-    student_1.setVariant(3);
-    student_1.printInfo();
+
+    s_1.nextKyrs();
+    s_1.printInfo();
+
+    s_1.setVariant(3);
+    s_1.getVariant();
+    s_1.setKyrs(0);
+    cout << endl;
+
 
     return 0;
 }
