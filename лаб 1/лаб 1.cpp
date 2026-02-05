@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
 class Student
@@ -30,11 +31,14 @@ public:
 
     Student(const string& first, const string& last, int naprav, short kyr, int grup, int vari)
     {
+        assert (vari > 0);
+        assert (kyr > 0);
+        assert (kyr < 7);
         first_name = first;
         last_name = last;
         napravlenie = naprav;
         kyrs = kyr;
-        variant = vari;
+        variant= vari;
         gruppa = grup;
     }
 
@@ -95,7 +99,7 @@ int main()
 {
     setlocale(LC_ALL, "RU");
 
-    Student s_1("Андрей", "Манаков", 1122, 6, 2, 1);
+    Student s_1("Андрей", "Манаков", 1122, 1, 2, 3);
     s_1.printInfo();
 
     Student s2 = s_1;
