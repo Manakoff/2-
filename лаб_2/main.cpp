@@ -5,10 +5,10 @@ int main() {
     
     setlocale(LC_ALL, "ru");
 
-    Student s1("К", "КС", { "А1", "А2", "Б1" });
+    Student s1("К", "КС", { "A1", "А2", "Б1" });
     s1.printInfo();
 
-    Student s2("Б", "БС", { "Б1", "В1", "В2" });
+    Student s2("Б", "БС", { "Б1", "В1", "A1" });
     s2.printInfo();
     
     Student s3 = s1;
