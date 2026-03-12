@@ -15,18 +15,18 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	// Задание 0
+	// Г‡Г Г¤Г Г­ГЁГҐ 0
 
 	print_alph();
 	
 	std::cout << std::endl;
 
-	//Задание 1
+	//Г‡Г Г¤Г Г­ГЁГҐ 1
 
 	char stroka[101];
 	std::cin.getline(stroka, 100);
 
-	char glas[] = "аеёиоуъыьэюя";
+	char glas[] = "Р°РµС‘РёРѕСѓСЉС‹СЊСЌСЋСЏ";
 
 	for (int i = 0; i < 101; i++)
 	{
@@ -44,7 +44,7 @@ int main()
 
 	std::cout << stroka << std::endl;
 
-	// Задание 2
+	// Г‡Г Г¤Г Г­ГЁГҐ 2
 	int n;
 	char symbol;
 	std::ifstream file_in_first("input.txt");
@@ -137,7 +137,7 @@ void print_alph()
 	}
 	std::cout << std::endl;
 
-	std::cout << "Русский алфавит" << std::endl;
+	std::cout << "Р СѓСЃСЃРєРёР№ Р°Р»С„Р°РІРёС‚" << std::endl;
 	for (unsigned char i = 192; i <= 223; i++)
 	{
 		std::cout << int(i) << ". " << i << " | " << int(i) + 32 << ". " << char(int(i) + 32) << std::endl;
@@ -148,7 +148,7 @@ void print_alph()
 	}
 	
 	std::cout << std::endl;
-	std::cout << "Знаки препинания" << std::endl;
+	std::cout << "Р—РЅР°РєРё РїСЂРµРїРёРЅР°РЅРёСЏ" << std::endl;
 	for (char i = 0; i < 100; i++)
 	{
 		if (std::ispunct(i))
@@ -174,7 +174,7 @@ std::string sortWord(std::string word, char s)
 	int median = start;
 	for (int i = start; i <= end; i++)
 	{
-		if (!isalnum(unsigned char(word[i])) && word[i + 1] != 'й')
+		if (!isalnum(unsigned char(word[i])) && word[i + 1] != 'Г©')
 			median = i;
 	}
 
