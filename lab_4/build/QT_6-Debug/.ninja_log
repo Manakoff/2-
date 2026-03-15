@@ -1,0 +1,16 @@
+# ninja log v6
+2153	2282	7953185317287027	lab_4.exe	5c0d19ff264ecda3
+29	103	7953185296049461	lab_4_autogen/timestamp	bde1044fdf5e2715
+29	103	7953185296049461	lab_4_autogen/mocs_compilation.cpp	bde1044fdf5e2715
+104	2153	7953185296799466	CMakeFiles/lab_4.dir/mainwindow.cpp.obj	59eb8251401803ed
+29	103	7953185296049461	C:/Users/User/Desktop/GitHub/Shop/2-/lab_4/build/QT_6-Debug/lab_4_autogen/timestamp	bde1044fdf5e2715
+29	103	7953185296049461	C:/Users/User/Desktop/GitHub/Shop/2-/lab_4/build/QT_6-Debug/lab_4_autogen/mocs_compilation.cpp	bde1044fdf5e2715
+279	2083	7953178397875989	CMakeFiles/lab_4.dir/lab_4_autogen/mocs_compilation.cpp.obj	58560c8dbf961cfd
+282	2253	7953178397905977	CMakeFiles/lab_4.dir/main.cpp.obj	caf0ad8036696171
+293	2493	7953173301547682	CMakeFiles/lab_4.dir/ticket.cpp.obj	771bb078a36c6bd9
+32	106	7953187294485432	lab_4_autogen/timestamp	bde1044fdf5e2715
+32	106	7953187294485432	lab_4_autogen/mocs_compilation.cpp	bde1044fdf5e2715
+32	106	7953187294485432	C:/Users/User/Desktop/GitHub/Shop/2-/lab_4/build/QT_6-Debug/lab_4_autogen/timestamp	bde1044fdf5e2715
+32	106	7953187294485432	C:/Users/User/Desktop/GitHub/Shop/2-/lab_4/build/QT_6-Debug/lab_4_autogen/mocs_compilation.cpp	bde1044fdf5e2715
+106	2166	7953187295230425	CMakeFiles/lab_4.dir/mainwindow.cpp.obj	59eb8251401803ed
+2166	2297	7953187315827166	lab_4.exe	5c0d19ff264ecda3
