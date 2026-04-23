@@ -70,7 +70,7 @@ QPushButton:hover {
     }</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Загрузить</string>
     </property>
    </widget>
   </widget>
