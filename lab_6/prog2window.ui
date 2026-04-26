@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Вывод данных</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QDialog {
+    background-color: #1e1e2e; 
+}</string>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -37,13 +42,15 @@ QPushButton:hover {
 }
 QPushButton:pressed {
     background-color: #81D4FA;
+    border-style: inset;
+	padding-top: 12px;
 }</string>
    </property>
    <property name="text">
     <string>Загрузить .json</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -61,11 +68,39 @@ QPushButton:pressed {
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget"/>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: #181825;
+    color: #cdd6f4;
+    gridline-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+QHeaderView::section {
+    background-color: #313244;
+    color: #f5e0dc;
+    padding: 5px;
+    border: 1px solid #45475a;
+    font-weight: bold;
+}
+QTableWidget 
+{
+    gridline-color: transparent; 
+    border: none; 
+    outline: none; 
+}
+QTableWidget::item {
+    border: none; 
+    padding: 5px;
+}</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -83,7 +118,26 @@ QPushButton:pressed {
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget_2"/>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: #181825;
+    color: #cdd6f4;
+    gridline-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+QHeaderView::section {
+    background-color: #313244;
+    color: #f5e0dc;
+    padding: 5px;
+    border: 1px solid #45475a;
+    font-weight: bold;
+}
+</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

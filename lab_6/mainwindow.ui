@@ -13,25 +13,45 @@
   <property name="windowTitle">
    <string>Меню</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QDialog {
+    background-color: #1e1e2e;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="on_btnProgram1">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>70</x>
       <y>260</y>
-      <width>141</width>
+      <width>194</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: green;
-    color: white;
-    border-radius: 4px;
+     <string notr="true">QPushButton 
+{
+    background-color: #313244;
+    color: #cdd6f4;
+    border-radius: 12px;
+    border: 2px solid #45475a;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    min-width: 150px;
+}
+QPushButton:hover
+ {
+    background-color: #89b4fa; 
+    color: #11111b;
+    border: 2px solid #b4befe;
 }
 
-QPushButton:hover {
-    background-color: darkgreen;
+QPushButton:pressed 
+{
+    background-color: #b4befe;
+    padding-top: 12px;
 }</string>
     </property>
     <property name="text">
@@ -41,21 +61,37 @@ QPushButton:hover {
    <widget class="QPushButton" name="on_btnProgram2">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>380</x>
       <y>260</y>
-      <width>141</width>
+      <width>194</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: green;
-    color: white;
-    border-radius: 4px;
+     <string notr="true">QPushButton 
+{
+    background-color: #313244;
+    color: #cdd6f4;
+    border-radius: 12px;
+    border: 2px solid #45475a;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    min-width: 150px;
 }
 
-QPushButton:hover {
-    background-color: darkgreen;
+QPushButton:hover 
+{
+    background-color: #89b4fa;
+    color: #11111b;
+    border: 2px solid #b4befe;
+}
+
+QPushButton:pressed
+ {
+    background-color: #b4befe;
+    padding-top: 12px; 
 }</string>
     </property>
     <property name="text">

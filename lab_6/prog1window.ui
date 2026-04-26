@@ -6,12 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>495</width>
-    <height>253</height>
+    <width>496</width>
+    <height>269</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Новый объект</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QDialog {
+    background-color: #1e1e2e; 
+}</string>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
@@ -38,6 +43,7 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: #F8A0B0;
     border-style: inset;
+	padding-top: 12px;
 }</string>
    </property>
    <property name="text">
@@ -69,19 +75,21 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: #F8A0B0;
     border-style: inset;
-}</string>
+	padding-top: 12px;
+}
+</string>
    </property>
    <property name="text">
     <string>Ок</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>30</y>
      <width>271</width>
-     <height>188</height>
+     <height>224</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -95,7 +103,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -109,7 +132,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -123,7 +161,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_3"/>
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -137,7 +190,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="lineEdit_4">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -151,7 +219,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_5"/>
+       <widget class="QLineEdit" name="lineEdit_5">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -165,7 +248,22 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_6"/>
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 5px;
+    selection-background-color: #89b4fa;
+}
+
+QLineEdit:focus {
+    border: 2px solid #89b4fa;
+}</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

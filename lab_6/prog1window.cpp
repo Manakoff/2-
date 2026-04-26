@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QMessageBox>
 
 prog1Window::prog1Window(QWidget *parent)
     : QDialog(parent)
@@ -21,65 +22,155 @@ prog1Window::~prog1Window()
 
 void prog1Window::on_pushButton_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Открыть данные", "", "Text Files (*.txt)");
-    if (fileName.isEmpty()) return;
+    if (inStream == nullptr)
+    {
+        QString fileName = QFileDialog::getOpenFileName(this, "Открыть данные", "", "Text Files (*.txt)");
+        if (fileName.isEmpty()) return;
 
-    QFile file(fileName);
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&file);
-
-        // 2. Читаем строки и сразу вставляем в LineEdit'ы
-        // Убедитесь, что objectName полей совпадают с кодом ниже
-        ui->lineEdit->setText(in.readLine());       // Название
-        ui->lineEdit_2->setText(in.readLine());       // Описание
-        ui->lineEdit_3->setText(in.readLine());     // Текущая прочность
-        ui->lineEdit_4->setText(in.readLine());     // Начальная прочность
-        ui->lineEdit_5->setText(in.readLine());     // Редкость
-        ui->lineEdit_6->setText(in.readLine());      // Цена
-
-        file.close();
-    }
-}
-
-
-void prog1Window::on_pushButton_2_clicked()
-{
-    QString filePath = "data.json";
-    QJsonArray rootArray;
-
-    // 1. Читаем существующий файл (если он есть), чтобы не стереть старые данные
-    QFile readFile(filePath);
-    if (readFile.exists()) { // Проверяем, существует ли он вообще
-        if (readFile.open(QIODevice::ReadOnly)) {
-            QByteArray data = readFile.readAll();
-            QJsonDocument doc = QJsonDocument::fromJson(data);
-            if (doc.isArray()) {
-                rootArray = doc.array();
-            }
-            readFile.close();
+        inputFile.setFileName(fileName);
+        if (inputFile.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            inStream = new QTextStream(&inputFile);
+        } else
+        {
+            return;
         }
     }
 
-    // 2. Собираем новый объект из полей формы
+    if (!inStream->atEnd())
+    {
+        QString line = inStream->readLine();
+        QStringList data = line.split(",");
+
+        if (data.size() >= 6)
+        {
+            ui->lineEdit->setText(data[0].trimmed());
+            ui->lineEdit_2->setText(data[1].trimmed());
+            ui->lineEdit_3->setText(data[2].trimmed());
+            ui->lineEdit_4->setText(data[3].trimmed());
+            ui->lineEdit_5->setText(data[4].trimmed());
+            ui->lineEdit_6->setText(data[5].trimmed());
+        }
+    } else
+    {
+        QMessageBox::information(this, "Конец", "Все строки из файла прочитаны.");
+        inputFile.close();
+        delete inStream;
+        inStream = nullptr;
+    }
+}
+
+void prog1Window::on_pushButton_2_clicked()
+{
+
+    if (ui->lineEdit->text().trimmed().isEmpty() &&
+        ui->lineEdit_2->text().trimmed().isEmpty() &&
+        ui->lineEdit_3->text().trimmed().isEmpty() &&
+        ui->lineEdit_4->text().trimmed().isEmpty() &&
+        ui->lineEdit_5->text().trimmed().isEmpty() &&
+        ui->lineEdit_6->text().trimmed().isEmpty())
+    {
+        QMessageBox::warning(this, "Внимание", "Заполните хотя бы одно поле перед сохранением!");
+        return;
+    }
+
+    QString filePath = "data.json";
+    QJsonArray rootArray;
+
+    //Читаем старые данные
+    QFile readFile(filePath);
+    if (readFile.open(QIODevice::ReadOnly))
+    {
+        rootArray = QJsonDocument::fromJson(readFile.readAll()).array();
+        readFile.close();
+    }
+
     QJsonObject newItem;
-    newItem["name"] = ui->lineEdit->text();
-    newItem["description"] = ui->lineEdit_2->text();
-    newItem["currentDurability"] = ui->lineEdit_3->text().toInt(); // сохраняем как текст для валидации позже
-    newItem["initialDurability"] = ui->lineEdit_4->text().toInt();
-    newItem["rarity"] = ui->lineEdit_5->text();
-    newItem["price"] = ui->lineEdit_6->text().toInt();
 
-    // 3. Добавляем в массив
+    // 1. Проверка Имени
+    bool okName;
+    int namVal = ui->lineEdit->text().toInt(&okName);
+    if (!okName)
+    {
+        newItem["name"] = ui->lineEdit->text();
+    }else
+    {
+        newItem["name"] = namVal;
+    }
+
+    // 2. Проверка Описания
+    bool okDesc;
+    int desVal = ui->lineEdit_2->text().toInt(&okDesc);
+    if(!okDesc)
+    {
+        newItem["description"] = ui->lineEdit_2->text();
+    }else
+    {
+        newItem["description"] = desVal;
+    }
+
+    // 3. Проверка Текущей прочности
+    bool okCur;
+    int curVal = ui->lineEdit_3->text().toInt(&okCur);
+    if (okCur)
+    {
+        newItem["currentDurability"] = curVal; // Записываем как число
+    } else
+    {
+        newItem["currentDurability"] = ui->lineEdit_3->text(); // Записываем как текст
+    }
+
+    // 4. Проверка Начальной прочности
+    bool okIni;
+    int iniVal = ui->lineEdit_4->text().toInt(&okIni);
+    if (okIni)
+    {
+        newItem["initialDurability"] = iniVal;
+    } else
+    {
+        newItem["initialDurability"] = ui->lineEdit_4->text();
+    }
+
+    // 5. Проверка Редкости
+    bool okRar;
+    int rarVal = ui->lineEdit_5->text().toInt(&okRar);
+    if(!okRar)
+    {
+        newItem["rarity"] = ui->lineEdit_5->text();
+    }else
+    {
+        newItem["rarity"] = rarVal;
+    }
+
+    // 6. Проверка Цены
+    bool okPrice;
+    double priceVal = ui->lineEdit_6->text().toInt(&okPrice);
+    if (okPrice)
+    {
+        newItem["price"] = priceVal;
+    } else
+    {
+        newItem["price"] = ui->lineEdit_6->text();
+    }
+
+    //Сохраняем данные
     rootArray.append(newItem);
-
-    // 4. Сохраняем обратно в файл
     QFile writeFile(filePath);
-    if (writeFile.open(QIODevice::WriteOnly)) {
+    if (writeFile.open(QIODevice::WriteOnly))
+    {
         writeFile.write(QJsonDocument(rootArray).toJson());
         writeFile.close();
     }
 
-    // Опционально: закрыть окно после добавления
-    this->close();
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
+    ui->lineEdit_3->clear();
+    ui->lineEdit_4->clear();
+    ui->lineEdit_5->clear();
+    ui->lineEdit_6->clear();
+
+    ui->lineEdit->setFocus();
+
+    // this->close();
 }
 

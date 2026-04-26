@@ -2,6 +2,8 @@
 #define PROG1WINDOW_H
 
 #include <QDialog>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class prog1Window;
@@ -22,6 +24,8 @@ private slots:
 
 private:
     Ui::prog1Window *ui;
+    QFile inputFile;
+    QTextStream *inStream = nullptr;
 };
 
 #endif // PROG1WINDOW_H
