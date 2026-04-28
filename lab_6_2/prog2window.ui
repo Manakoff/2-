@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>prog2Window</class>
+ <widget class="QDialog" name="prog2Window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1277</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Вывод данных</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QDialog {
+    background-color: #1e1e2e; 
+}</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>360</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #E0F2F7; 
+    border: 3px solid black; 
+    border-radius: 12px; 
+    color: black;
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    font-size: 13px;
+    padding: 5px 15px;
+}
+QPushButton:hover {
+    background-color: #B3E5FC;
+}
+QPushButton:pressed {
+    background-color: #81D4FA;
+    border-style: inset;
+	padding-top: 12px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Загрузить .json</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>40</y>
+     <width>631</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Корректные</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: #181825;
+    color: #cdd6f4;
+    gridline-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+QHeaderView::section {
+    background-color: #313244;
+    color: #f5e0dc;
+    padding: 5px;
+    border: 1px solid #45475a;
+    font-weight: bold;
+}
+QTableWidget 
+{
+    gridline-color: transparent; 
+    border: none; 
+    outline: none; 
+}
+QTableWidget::item {
+    border: none; 
+    padding: 5px;
+}</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>40</y>
+     <width>621</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Ошибки</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: #181825;
+    color: #cdd6f4;
+    gridline-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+QHeaderView::section {
+    background-color: #313244;
+    color: #f5e0dc;
+    padding: 5px;
+    border: 1px solid #45475a;
+    font-weight: bold;
+}
+</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
